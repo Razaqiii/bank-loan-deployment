@@ -1,0 +1,24 @@
+{
+  "name": "bank-loan-app-frontend-secure",
+  "version": "2.0.0",
+  "description": "Bank Loan Application - Secure Frontend (Production Ready)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "npx http-server public -p 3000 -o",
+    "dev": "npx http-server public -p 3000 -o",
+    "lint": "echo 'Linting not configured yet'",
+    "test": "echo 'Tests not configured yet'"
+  },
+  "keywords": [
+    "frontend",
+    "secure",
+    "production-ready",
+    "loan-application"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

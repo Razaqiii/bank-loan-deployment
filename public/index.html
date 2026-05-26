@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bank Nusantara - Sistem Pinjaman Online dengan bunga rendah dan proses cepat">
+    <meta name="keywords" content="pinjaman online, kredit, KPR, kredit kendaraan, pinjaman usaha">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:;">
+    <title>Bank Nusantara - Sistem Pinjaman Online</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-university" aria-hidden="true"></i>
+                <span>Bank Nusantara</span>
+            </div>
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="#home" class="active" role="menuitem">Beranda</a></li>
+                <li role="none"><a href="#products" role="menuitem">Produk</a></li>
+                <li role="none"><a href="#calculator" role="menuitem">Kalkulator</a></li>
+                <li role="none"><a href="#about" role="menuitem">Tentang</a></li>
+                <li role="none"><a href="#contact" role="menuitem">Kontak</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-login" onclick="window.modalModule.showLogin()" aria-label="Masuk ke akun">Masuk</button>
+                <button class="btn-register" onclick="window.modalModule.showRegister()" aria-label="Daftar akun baru">Daftar</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <section class="hero" id="home" aria-labelledby="hero-title">
+            <div class="hero-overlay" aria-hidden="true"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 id="hero-title" class="hero-title">Wujudkan Impian Anda Bersama Kami</h1>
+                    <p class="hero-subtitle">Dapatkan pinjaman dengan bunga rendah dan proses cepat hanya dalam 24 jam</p>
+                    <div class="hero-stats" role="list">
+                        <div class="stat-item" role="listitem">
+                            <h3>5.2%</h3>
+                            <p>Bunga Terendah</p>
+                        </div>
+                        <div class="stat-item" role="listitem">
+                            <h3>24 Jam</h3>
+                            <p>Proses Persetujuan</p>
+                        </div>
+                        <div class="stat-item" role="listitem">
+                            <h3>500M+</h3>
+                            <p>Dana Tersalurkan</p>
+                        </div>
+                    </div>
+                    <button class="btn-primary" onclick="window.scrollToCalculator()" aria-label="Hitung pinjaman Anda">
+                        <i class="fas fa-calculator" aria-hidden="true"></i> Hitung Pinjaman Anda
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="products" id="products" aria-labelledby="products-title">
+            <div class="container">
+                <h2 id="products-title" class="section-title">Produk Pinjaman Kami</h2>
+                <p class="section-subtitle">Pilih produk yang sesuai dengan kebutuhan Anda</p>
+                
+                <div class="product-grid" role="list">
+                    <article class="product-card" role="listitem">
+                        <div class="product-icon" aria-hidden="true">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Kredit Pemilikan Rumah</h3>
+                        <p class="product-rate">Bunga mulai dari <strong>5.2%</strong></p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Tenor hingga 20 tahun</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> DP mulai 10%</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Proses cepat & mudah</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Tanpa biaya provisi</li>
+                        </ul>
+                        <button class="btn-apply" onclick="window.modalModule.applyLoan('KPR')" aria-label="Ajukan Kredit Pemilikan Rumah">Ajukan Sekarang</button>
+                    </article>
+
+                    <article class="product-card featured" role="listitem">
+                        <div class="badge" aria-label="Produk paling populer">Paling Populer</div>
+                        <div class="product-icon" aria-hidden="true">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3>Kredit Kendaraan</h3>
+                        <p class="product-rate">Bunga mulai dari <strong>6.5%</strong></p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Tenor hingga 5 tahun</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> DP mulai 20%</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Asuransi komprehensif</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Proses 1 hari</li>
+                        </ul>
+                        <button class="btn-apply" onclick="window.modalModule.applyLoan('Kendaraan')" aria-label="Ajukan Kredit Kendaraan">Ajukan Sekarang</button>
+                    </article>
+
+                    <article class="product-card" role="listitem">
+                        <div class="product-icon" aria-hidden="true">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>Pinjaman Usaha</h3>
+                        <p class="product-rate">Bunga mulai dari <strong>7.8%</strong></p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Plafon hingga 5M</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Tenor fleksibel</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Tanpa agunan</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Konsultasi gratis</li>
+                        </ul>
+                        <button class="btn-apply" onclick="window.modalModule.applyLoan('Usaha')" aria-label="Ajukan Pinjaman Usaha">Ajukan Sekarang</button>
+                    </article>
+
+                    <article class="product-card" role="listitem">
+                        <div class="product-icon" aria-hidden="true">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Pinjaman Pendidikan</h3>
+                        <p class="product-rate">Bunga mulai dari <strong>5.5%</strong></p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Tenor hingga 10 tahun</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Grace period tersedia</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Tanpa DP</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Untuk semua jenjang</li>
+                        </ul>
+                        <button class="btn-apply" onclick="window.modalModule.applyLoan('Pendidikan')" aria-label="Ajukan Pinjaman Pendidikan">Ajukan Sekarang</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="calculator" id="calculator" aria-labelledby="calculator-title">
+            <div class="container">
+                <h2 id="calculator-title" class="section-title">Kalkulator Pinjaman</h2>
+                <p class="section-subtitle">Hitung estimasi cicilan bulanan Anda</p>
+                
+                <div class="calculator-wrapper">
+                    <form class="calculator-form" aria-label="Form kalkulator pinjaman">
+                        <div class="form-group">
+                            <label for="loanType">Jenis Pinjaman</label>
+                            <select id="loanType" aria-describedby="loanType-desc">
+                                <option value="5.2">Kredit Pemilikan Rumah (5.2%)</option>
+                                <option value="6.5">Kredit Kendaraan (6.5%)</option>
+                                <option value="7.8">Pinjaman Usaha (7.8%)</option>
+                                <option value="5.5">Pinjaman Pendidikan (5.5%)</option>
+                            </select>
+                            <span id="loanType-desc" class="sr-only">Pilih jenis pinjaman yang Anda inginkan</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="loanAmount">Jumlah Pinjaman</label>
+                            <div class="input-wrapper">
+                                <span class="input-prefix" aria-hidden="true">Rp</span>
+                                <input type="text" id="loanAmount" value="100.000.000" data-currency aria-describedby="loanAmount-desc">
+                            </div>
+                            <input type="range" id="loanAmountSlider" min="10000000" max="1000000000" step="1000000" value="100000000" aria-label="Slider jumlah pinjaman">
+                            <span id="loanAmount-desc" class="sr-only">Masukkan jumlah pinjaman yang diinginkan</span>
+                            <span class="error-message" role="alert"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="loanTenor">Jangka Waktu (Bulan)</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="loanTenor" value="12" min="6" max="240" aria-describedby="loanTenor-desc">
+                                <span class="input-suffix" aria-hidden="true">Bulan</span>
+                            </div>
+                            <input type="range" id="tenorSlider" min="6" max="240" value="12" aria-label="Slider jangka waktu">
+                            <span id="loanTenor-desc" class="sr-only">Pilih jangka waktu pinjaman dalam bulan</span>
+                            <span class="error-message" role="alert"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="interestRate">Suku Bunga per Tahun</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="interestRate" value="5.2" step="0.1" min="0" max="30" aria-describedby="interestRate-desc">
+                                <span class="input-suffix" aria-hidden="true">%</span>
+                            </div>
+                            <span id="interestRate-desc" class="sr-only">Suku bunga tahunan dalam persen</span>
+                            <span class="error-message" role="alert"></span>
+                        </div>
+
+                        <button type="button" class="btn-calculate" aria-label="Hitung cicilan pinjaman">
+                            <i class="fas fa-calculator" aria-hidden="true"></i> Hitung Cicilan
+                        </button>
+                    </form>
+
+                    <div class="calculator-result" role="region" aria-labelledby="result-title">
+                        <h3 id="result-title">Hasil Perhitungan</h3>
+                        <div class="result-item">
+                            <span>Cicilan per Bulan</span>
+                            <strong id="monthlyPayment" aria-live="polite">Rp 0</strong>
+                        </div>
+                        <div class="result-item">
+                            <span>Total Bunga</span>
+                            <strong id="totalInterest" aria-live="polite">Rp 0</strong>
+                        </div>
+                        <div class="result-item">
+                            <span>Total Pembayaran</span>
+                            <strong id="totalPayment" aria-live="polite">Rp 0</strong>
+                        </div>
+                        <button class="btn-apply-calc" onclick="window.modalModule.applyFromCalculator()" aria-label="Ajukan pinjaman berdasarkan perhitungan ini">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i> Ajukan Pinjaman Ini
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal" role="dialog" aria-labelledby="login-title" aria-hidden="true">
+        <div class="modal-content modal-small">
+            <button class="close" onclick="window.modalModule.closeModal('loginModal')" aria-label="Tutup modal">&times;</button>
+            <h2 id="login-title">Masuk ke Akun Anda</h2>
+            <form id="loginForm" novalidate>
+                <div class="form-group">
+                    <label for="loginUsername">Email</label>
+                    <input type="email" id="loginUsername" required aria-required="true" aria-describedby="loginUsername-error">
+                    <span id="loginUsername-error" class="error-message" role="alert"></span>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required aria-required="true" aria-describedby="loginPassword-error">
+                    <span id="loginPassword-error" class="error-message" role="alert"></span>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe">Ingat saya</label>
+                </div>
+                <button type="submit" class="btn-submit" aria-label="Masuk ke akun">
+                    <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Masuk
+                </button>
+                <p class="form-footer">
+                    Belum punya akun? <a href="#" onclick="window.modalModule.showRegister(); return false;">Daftar sekarang</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal" role="dialog" aria-labelledby="register-title" aria-hidden="true">
+        <div class="modal-content modal-small">
+            <button class="close" onclick="window.modalModule.closeModal('registerModal')" aria-label="Tutup modal">&times;</button>
+            <h2 id="register-title">Daftar Akun Baru</h2>
+            <form id="registerForm" novalidate>
+                <div class="form-group">
+                    <label for="registerName">Nama Lengkap</label>
+                    <input type="text" id="registerName" required aria-required="true" aria-describedby="registerName-error">
+                    <span id="registerName-error" class="error-message" role="alert"></span>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" required aria-required="true" aria-describedby="registerEmail-error">
+                    <span id="registerEmail-error" class="error-message" role="alert"></span>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" required aria-required="true" aria-describedby="registerPassword-error">
+                    <span id="registerPassword-error" class="error-message" role="alert"></span>
+                    <small>Minimal 8 karakter, mengandung huruf besar, kecil, dan angka</small>
+                </div>
+                <div class="form-group">
+                    <label for="registerConfirmPassword">Konfirmasi Password</label>
+                    <input type="password" id="registerConfirmPassword" required aria-required="true" aria-describedby="registerConfirmPassword-error">
+                    <span id="registerConfirmPassword-error" class="error-message" role="alert"></span>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="agreeTerms" required aria-required="true">
+                    <label for="agreeTerms">Saya setuju dengan syarat dan ketentuan</label>
+                </div>
+                <button type="submit" class="btn-submit" aria-label="Daftar akun baru">
+                    <i class="fas fa-user-plus" aria-hidden="true"></i> Daftar
+                </button>
+                <p class="form-footer">
+                    Sudah punya akun? <a href="#" onclick="window.modalModule.showLogin(); return false;">Masuk di sini</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Application Modal -->
+    <div id="applicationModal" class="modal" role="dialog" aria-labelledby="application-title" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close" onclick="window.modalModule.closeModal('applicationModal')" aria-label="Tutup modal">&times;</button>
+            <h2 id="application-title">Formulir Pengajuan Pinjaman</h2>
+            <form id="loanApplicationForm" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Nama Lengkap *</label>
+                        <input type="text" id="fullName" required aria-required="true" aria-describedby="fullName-error">
+                        <span id="fullName-error" class="error-message" role="alert"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="nik">NIK *</label>
+                        <input type="text" id="nik" maxlength="16" required aria-required="true" aria-describedby="nik-error">
+                        <span id="nik-error" class="error-message" role="alert"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" required aria-required="true" aria-describedby="email-error">
+                        <span id="email-error" class="error-message" role="alert"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">No. Telepon *</label>
+                        <input type="tel" id="phone" required aria-required="true" aria-describedby="phone-error">
+                        <span id="phone-error" class="error-message" role="alert"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Alamat Lengkap *</label>
+                    <textarea id="address" rows="3" required aria-required="true" aria-describedby="address-error"></textarea>
+                    <span id="address-error" class="error-message" role="alert"></span>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="occupation">Pekerjaan *</label>
+                        <input type="text" id="occupation" required aria-required="true" aria-describedby="occupation-error">
+                        <span id="occupation-error" class="error-message" role="alert"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="income">Penghasilan per Bulan *</label>
+                        <input type="text" id="income" data-currency required aria-required="true" aria-describedby="income-error">
+                        <span id="income-error" class="error-message" role="alert"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="applicationLoanType">Jenis Pinjaman *</label>
+                        <select id="applicationLoanType" required aria-required="true" aria-describedby="applicationLoanType-error">
+                            <option value="">Pilih Jenis Pinjaman</option>
+                            <option value="KPR">Kredit Pemilikan Rumah</option>
+                            <option value="Kendaraan">Kredit Kendaraan</option>
+                            <option value="Usaha">Pinjaman Usaha</option>
+                            <option value="Pendidikan">Pinjaman Pendidikan</option>
+                        </select>
+                        <span id="applicationLoanType-error" class="error-message" role="alert"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicationAmount">Jumlah Pinjaman *</label>
+                        <input type="text" id="applicationAmount" data-currency required aria-required="true" aria-describedby="applicationAmount-error">
+                        <span id="applicationAmount-error" class="error-message" role="alert"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="loanPurpose">Tujuan Pinjaman *</label>
+                    <textarea id="loanPurpose" rows="3" required aria-required="true" aria-describedby="loanPurpose-error"></textarea>
+                    <span id="loanPurpose-error" class="error-message" role="alert"></span>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="terms" required aria-required="true">
+                    <label for="terms">Saya menyetujui syarat dan ketentuan yang berlaku</label>
+                </div>
+
+                <button type="submit" class="btn-submit" aria-label="Kirim pengajuan pinjaman">
+                    <i class="fas fa-paper-plane" aria-hidden="true"></i> Kirim Pengajuan
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-university" aria-hidden="true"></i> Bank Nusantara</h3>
+                    <p>Solusi keuangan terpercaya untuk masa depan yang lebih baik.</p>
+                    <div class="social-links" role="list">
+                        <a href="#" aria-label="Facebook" role="listitem"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Twitter" role="listitem"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Instagram" role="listitem"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="LinkedIn" role="listitem"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Produk</h4>
+                    <ul>
+                        <li><a href="#products">Kredit Pemilikan Rumah</a></li>
+                        <li><a href="#products">Kredit Kendaraan</a></li>
+                        <li><a href="#products">Pinjaman Usaha</a></li>
+                        <li><a href="#products">Pinjaman Pendidikan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Perusahaan</h4>
+                    <ul>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#about">Karir</a></li>
+                        <li><a href="#about">Berita</a></li>
+                        <li><a href="#contact">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontak</h4>
+                    <ul>
+                        <li><i class="fas fa-phone" aria-hidden="true"></i> 1500-888</li>
+                        <li><i class="fas fa-envelope" aria-hidden="true"></i> info@banknusantara.co.id</li>
+                        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Jakarta, Indonesia</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bank Nusantara. All rights reserved. | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

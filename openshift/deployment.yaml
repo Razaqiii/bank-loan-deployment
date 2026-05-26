@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bank-loan-deployment
+  labels:
+    app: bank-loan-deployment
+    version: v1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bank-loan-deployment
+  template:
+    metadata:
+      labels:
+        app: bank-loan-deployment
+        version: v1
+    spec:
+      initContainers:
+      - name: setup-files
+        image: docker.io/nginxinc/nginx-unprivileged:alpine
+        command: ['sh', '-c', 'mkdir -p /app/css /app/js && cp /tmp/index.html /app/ && cp /tmp/styles.css /app/css/ && cp /tmp/*.js /app/js/']
+        volumeMounts:
+        - name: app-configmap
+          mountPath: /tmp
+        - name: app-files
+          mountPath: /app
+      containers:
+      - name: bank-loan-deployment
+        image: docker.io/nginxinc/nginx-unprivileged:alpine
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        volumeMounts:
+        - name: app-files
+          mountPath: /usr/share/nginx/html
+        - name: nginx-config
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 3
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+      volumes:
+      - name: app-configmap
+        configMap:
+          name: bank-loan-deployment-app
+      - name: app-files
+        emptyDir: {}
+      - name: nginx-config
+        configMap:
+          name: bank-loan-deployment-nginx-config
+
+# Made with Bob
